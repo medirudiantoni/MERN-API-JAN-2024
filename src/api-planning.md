@@ -1,0 +1,58 @@
+Standar API
+
+{root.api}/{version}/{grouping}/{endpoint}
+
+CONTOH:
+http://mern-api.memedcoding.com/v1/auth/login
+
+Standar Status response:
+
+200 - OK                        --> Call API Success
+
+201 - CREATED                   --> POST Success
+
+400 - BAD REQUEST               --> Error on Client Side (bisa salah input dll)
+
+403 - FORBIDDEN                 --> User not allowed to access.
+
+404 - NOT FOUND                 --> Request endpoint not found.
+
+500 - INTERNAL SERVER ERROR     --> Error on server side.
+
+500 - BAD GATEAWAY              --> Invalid Response from another request.
+
+
+GROUP: Authenticaition
+
+[1] - Register
+    {root.api}/{version}/auth/register
+
+    req: {
+        "name" : "Testing",
+        "email" : "test@example.com"
+        "password" : "example123"
+    }
+
+    res: {
+        "message": "Register Success"
+        "data": {
+            "id": 1,
+            "name" : "Testing",
+            "email" : "test@example.com",
+            "password" : "example123"
+        }
+    }
+
+    err-response:
+    400 -> Input yang anda masukkan tidak valid
+
+[2] - Login
+    {root.api}/{version}/auth/login
+
+
+GROUP: BLOG
+
+[1] - Create Blog Post
+[2] - Get Blog Post
+[3] - Update Blog Post
+[4] - Delete Blog Post
