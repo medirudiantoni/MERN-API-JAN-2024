@@ -43,6 +43,14 @@ app.use((req, res, next) => {
   next();
 });
 
+// Endpoint untuk memberikan gambar sebagai file
+app.get('/v1/blog/post/image/:imageName', (req, res) => {
+  const imageName = req.params.imageName;
+  const imagePath = path.join(__dirname, 'images', imageName);
+
+  res.sendFile(imagePath);
+});
+
 app.use("/v1/auth", authRoutes);
 app.use("/v1/blog", blogRoutes);
 
